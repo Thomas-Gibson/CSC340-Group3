@@ -1,0 +1,172 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+h1,
+h2 {
+    text-align: center;
+    background-color: rgb(0, 0, 0, 50%);
+    color: white;
+    padding: 10px;
+    font-size: 1.5em;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+html,
+body {
+    height: 200%;
+    width: 100%;
+    background-color: rgb(90%, 90%, 90%);
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    color: white;
+}
+
+#main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main-nav p {
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.search-container {
+    flex-grow: 1;
+    text-align: center; 
+}
+
+.search-container input[type="text"] {
+    width: 300px;
+    padding: 5px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #555;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#venue-heading {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: black;
+}
+
+#venue-heading img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: brightness(40%);
+    object-fit: cover;
+}
+
+#venue-heading p {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 28px;
+    color: white;
+}
+
+.small-banner {
+    background-color: rgba(0, 0, 0, 0);
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+    display: block; /* Change to block */
+    width: fit-content; /* Make it fit the content */
+    margin: 10px auto; /* Center it */
+}
+
+.show-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.show-item {
+    width: 300px;
+    margin: 20px;
+    background-color: rgba(100%, 100%, 100%, 40%);
+    display: block;
+    position: relative;
+    border: 5px solid black;
+    overflow: hidden;
+}
+
+.show-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.show-item p {
+    text-align: center;
+    padding: 10px;
+    color: black;
+}
+
+section {
+    background-color: rgb(0, 0, 0, 20%);
+    width: fit-content;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.venue-info {
+    width: 60%; 
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2); 
+}
+
+.venue-info p {
+    line-height: 2;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.button-container button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-container button:hover {
+    background-color: #777;
+}

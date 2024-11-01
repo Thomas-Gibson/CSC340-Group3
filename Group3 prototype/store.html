@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautifully Broken Gold Vinyl Track: Store Page</title>
+    <link rel="icon" href="image/favicon.svg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .product-image {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .quantity-input {
+            width: 80px;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .btn-add-to-cart {
+            background-color: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="main-nav">
+
+        <p><a href="index.html">Show Hunter</a></p>
+        <div class="search-container">
+            <input type="text" placeholder="Search...">
+            <button type="submit">Search</button>
+        </div>
+
+        <div>
+            <a href="cart.html"><img class="cart" src="image/cart-fill.svg" alt=""></a>
+            <img src="https://nextbestpicture-com.b-cdn.net/wp-content/uploads/2023/07/Oppenheimer-scaled.jpg" alt="">
+        </div>
+    </nav>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="subscription.html">Subscriptions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+
+            <div class="col-md-6">
+                <img src="https://jellyroll615.com/cdn/shop/files/JellyRollUpdatedVinylMock_2048x2048.png?v=1724433884"
+                    alt="Product Image" class="product-image">
+            </div>
+
+            <div class="col-md-6">
+                <h1>Beautifully Broken Gold Vinyl Track</h1>
+                <p class="text-muted">Category: Music</p>
+                <p class="price">$19.99</p>
+
+                <p class="lead">Please note that this is a pre-order. Orders for this item will ship on or around
+                    October 11. In stock items purchased
+                    with this item will not ship separately.
+
+                    As of 09/30 - If you pre-ordered this item and need to make changes to your order, please do so by
+                    October 2nd 12 PM CT.
+                    Any edits to orders cannot be guaranteed after this date due to shipping timeline requirements for
+                    release week.
+
+                    Beautifully Broken is the new studio album from Jelly Roll releasing October 11th and features the
+                    hit single “I Am Not
+                    Okay”. The gold nugget 12” vinyl is housed in a gatefold package.
+
+                    Limit of 2 units allowed per order, per household. Additional units will be cancelled and refunded
+                </p>
+
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Quantity</label>
+                    <input type="number" id="quantity" class="form-control quantity-input" value="1" min="1">
+                </div>
+
+                <button class="btn btn-add-to-cart btn-lg">
+                    <i class="bi bi-cart-plus"></i> Add to Cart
+                </button>
+
+                <div class="mt-4">
+                    <h5>Product Details</h5>
+                    <ul>
+                        <li>play time: 56 min 22 sec</li>
+                        <li>Includes autograph</li>
+                        <li>Gold Vinyl</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.js"></script>
+</body>
+
+</html>

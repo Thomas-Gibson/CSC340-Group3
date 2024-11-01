@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}

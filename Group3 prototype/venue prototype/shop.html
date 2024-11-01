@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Show Hunter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Shop</h1>
+        <nav>
+            <a href="index.html">Back to Venue Profile</a>
+        </nav>
+    </header>
+    <main>
+        <section id="shop-items">
+            <h2>Available Items</h2>
+            <button class="action-button" onclick="alert('List New Item clicked!')">List New Item</button> <!-- Modified button -->
+            <div class="item-container">
+                <div class="shop-item">
+                    <h3>Item 1: Concert Tickets</h3>
+                    <img src="https://via.placeholder.com/150" alt="Concert Tickets">
+                    <p>Description: Two tickets for the upcoming concert.</p>
+                    <p>Price: $100</p>
+                    <div class="button-container">
+                        <button class="action-button" onclick="alert('Change Price clicked!')">Change Price</button>
+                        <button onclick="alert('Change Description clicked!')">Change Description</button>
+                        <button onclick="alert('Delist Item clicked!')">Delist Item</button>
+                    </div>
+                </div>
+                <div class="shop-item">
+                    <h3>Item 2: Merchandise Bundle</h3>
+                    <img src="https://via.placeholder.com/150" alt="Merchandise Bundle">
+                    <p>Description: A bundle of merchandise including a t-shirt and a poster.</p>
+                    <p>Price: $50</p>
+                    <div class="button-container">
+                        <button class="action-button" onclick="alert('Change Price clicked!')">Change Price</button>
+                        <button onclick="alert('Change Description clicked!')">Change Description</button>
+                        <button onclick="alert('Delist Item clicked!')">Delist Item</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Show Hunter</p>
+    </footer>
+</body>
+</html>

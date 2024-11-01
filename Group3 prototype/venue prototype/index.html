@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greensboro Coliseum - Venue Profile</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function () {
+            const venueData = JSON.parse(localStorage.getItem('venueData'));
+            if (venueData) {
+                document.getElementById('venue-name-display').textContent = venueData.name || 'Greensboro Coliseum';
+                document.getElementById('address-display').textContent = venueData.address || 'Default Address';
+                document.getElementById('city-display').textContent = venueData.city || 'Greensboro';
+                document.getElementById('state-display').textContent = venueData.state || 'NC';
+                document.getElementById('zip-display').textContent = venueData.zip || '27401';
+                document.getElementById('phone-display').textContent = venueData.phone || '(336) 373-7400';
+                document.getElementById('email-display').textContent = venueData.email || 'info@greensborocoliseum.com';
+                document.getElementById('website-display').textContent = venueData.website || 'greensborocoliseum.com';
+                document.getElementById('description-display').textContent = venueData.description || 'We host a wide array of events, such as athletic competitions, cultural arts showcases, concerts, theater performances, educational activities, fairs, exhibits, as well as public and private gatherings, including conventions, convocations, trade shows, and consumer shows. We play a crucial role as a hub of community activities and significantly contributes to the regional economy.';
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <header>
+        <div id="main-nav">
+            <p>Show Hunter</p>
+            <div class="search-container">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+            <a href="editable-venue-profile.html" class="edit-profile-link">Edit Profile</a> <!-- Edit Profile link -->
+        </div>
+    </header>
+
+    <main>
+        <section id="venue-heading">
+            <img src="https://www.greensborocoliseum.com/assets/img/Greensboro_Coliseum_Header-96b5893fd8.jpg"
+                alt="Greensboro Coliseum">
+            <p>Greensboro Coliseum</p>
+        </section>
+
+        <div class="small-banner">Showing</div>
+
+        <section>
+            <div class="show-container">
+                <div class="show-item">
+                    <a href="#">
+                        <img src="https://www.gsocomplex.com/assets/img/808x504-d64c92bd8a.jpg" alt="Disney on Ice">
+                        <p>Disney on Ice</p>
+                    </a>
+                </div>
+                <div class="show-item">
+                    <a href="#">
+                        <img src="https://www.gsocomplex.com/assets/img/NC_Local_Greensboro_808x504-a8c9021474.jpg"
+                            alt="Nitro Circus">
+                        <p>Nitro Circus</p>
+                    </a>
+                </div>
+                <div class="show-item">
+                    <a href="#">
+                        <img src="https://www.gsocomplex.com/assets/img/JellyRoll_EDP-114570f17d.jpg"
+                            alt="93.1 The Wolf & Bud Light Present Jelly Roll">
+                        <p>93.1 The Wolf & Bud Light Present Jelly Roll</p>
+                    </a>
+                </div>
+                <div class="show-item">
+                    <a href="#">
+                        <img src="https://www.gsocomplex.com/assets/img/Web-Banner-Main-Image-808x504-ad8cc7c3f9.jpg"
+                            alt="Monster Jam">
+                        <p>Monster Jam</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="button-container">
+            <button onclick="alert('Add Show clicked!')">Add Show</button>
+            <button onclick="alert('Remove Show clicked!')">Remove Show</button>
+            <button onclick="alert('Edit Show clicked!')">Edit Show</button>
+            <button onclick="window.location.href='shop.html';">Edit Shop</button>
+        </div>
+
+        <section id="venue-info" class="venue-info">
+            <h2>Venue Description</h2>
+            <p id="description-display">Default Description</p>
+            <ul>
+                <li><strong>Location:</strong> <span id="address-display">Default Address</span>, <span
+                        id="city-display">Greensboro</span>, <span id="state-display">NC</span> <span
+                        id="zip-display">27401</span></li>
+                <li><strong>Contact Phone:</strong> <span id="phone-display">(336) 373-7400</span></li>
+                <li><strong>Contact Email:</strong> <span id="email-display">info@greensborocoliseum.com</span></li>
+                <li><strong>Website:</strong> <a href="http://www.greensborocoliseum.com" target="_blank"
+                        id="website-display">greensborocoliseum.com</a></li>
+                <li><strong>Seating Capacity:</strong> 23,500</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <a href="../projectpro/index.html">view admin page</a>
+        <p>&copy; 2024 Show Hunter</p>
+    </footer>
+</body>
+
+</html>

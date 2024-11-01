@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShowHunter - Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header class="bg-dark text-white p-3">
+        <h1 class="text-center">ShowHunter - Dashboard</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="dashboard.html">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Manage User.html">Manage Users</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="moderate-services.html">Moderate Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="moderate-reviews.html">Moderate Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view-stats.html">View Statistics</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.html">Log Out</a>
+                        
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h3>Welcome to the Dashboard</h3>
+        <p class="text-muted">Here’s an overview of the key metrics and recent activities in the system.</p>
+
+        <!-- Summary Cards -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Users</h5>
+                        <p class="card-text">250</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Active Events</h5>
+                        <p class="card-text">30</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Tickets Sold</h5>
+                        <p class="card-text">1,200</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity List -->
+        <h4 class="mt-4">Recent Activity</h4>
+        <ul class="list-group">
+            <li class="list-group-item">User John Doe registered.</li>
+            <li class="list-group-item">User Jane Smith purchased 3 tickets.</li>
+            <li class="list-group-item">Event 'Music Concert' was created.</li>
+            <li class="list-group-item">User Mike Johnson wrote a review.</li>
+            <!-- Add more recent activities as needed -->
+        </ul>
+    </div>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.static-chart {
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 20px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.text-muted {
+    font-size: 1rem;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.card {
+    margin-bottom: 20px;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}

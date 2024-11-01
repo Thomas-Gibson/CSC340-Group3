@@ -71,7 +71,7 @@ body {
         cursor: pointer;
 }
 
-#main-nav img {
+#main-nav img:not(#cart) {
         width: 40px;
         height: 40px;
         object-fit: cover;
@@ -104,6 +104,8 @@ body {
         display: block;
         position: relative;
         border: 5px solid black;
+
+        overflow: hidden;
 }
 
 .venue-item p {
@@ -125,11 +127,28 @@ body {
 .venue-item img {
         display: block;
 
-        width: 100%;
         height: 100%;
         object-fit: cover;
 
         filter: brightness(60%);
+}
+
+.venue-item img:not(.sliding) {
+        width: 100%;
+}
+
+.sliding {
+        animation: slide 10s infinite alternate ease-in-out;
+}
+
+@keyframes slide {
+        0% {
+                transform: translateX(0);
+        }
+
+        100% {
+                transform: translateX(calc(-100% + 300px));
+        }
 }
 
 .venue-item:hover img {
@@ -175,6 +194,41 @@ section {
         color: white;
 }
 
+#venue-heading button {
+
+        position: absolute;
+        z-index: 1;
+        bottom: 0%;
+        left: 0%;
+        padding: 20px;
+        margin: 20px;
+        border-radius: 5px;
+
+        font-size: 24px;
+        color: #333;
+        background-color: #ccc;
+        /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+
+        background-color: #5f5aff;
+        color: white;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+
+}
+
+#venue-heading button:hover {
+        background-color: #3e38ff;
+        box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-2px);
+}
+
 #carouselExampleDark {
         width: 500px;
         margin-left: auto;
@@ -190,4 +244,40 @@ section {
         margin-left: auto;
         margin-right: auto;
 
+}
+
+section p {
+        padding: 20px;
+        font-size: 20px;
+        color: #333;
+}
+
+footer {
+        margin-top: 20px;
+        margin-left: 50px;
+        margin-right: 50px;
+}
+
+.comment-box {
+        background-color: beige;
+        padding: 10px;
+        border: black solid 1px;
+}
+
+.comment-author {
+        font-weight: bold;
+}
+
+.comment-form {
+        border: black solid 1px;
+
+}
+
+.cart {
+        margin-right: 20px;
+}
+
+#settings-main {
+        padding-left: 50px;
+        padding-right: 50px;
 }
