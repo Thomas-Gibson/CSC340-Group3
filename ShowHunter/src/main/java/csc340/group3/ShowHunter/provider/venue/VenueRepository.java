@@ -13,5 +13,6 @@ import java.util.List;
 public interface VenueRepository extends JpaRepository<Venue, Integer> {
 
     @Query(value = "SELECT a FROM Venue a WHERE a.name LIKE %?1%", nativeQuery = true)
-    Optional<Venue> findByNameContaining(String name);
+    Venue findByNameContaining(String name);
+    Venue findById(int id);
 }

@@ -1,6 +1,11 @@
 package csc340.group3.ShowHunter.provider.shows;
 
+import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
+import csc340.group3.ShowHunter.provider.venue.Venue;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "shows")
@@ -15,11 +20,11 @@ public class Shows {
     public String image;
     public String description;
     public String ticket;
-    public int venue_id;
 
-    public Shows(int id, int venue_id, String name, String image, String description, String ticket){
+
+
+    public Shows(int id, String name, String image, String description, String ticket){
         this.id = id;
-        this.venue_id = venue_id;
         this.name = name;
         this.image = image;
         this.description = description;
@@ -29,7 +34,6 @@ public class Shows {
 
     public Shows() {
         this.id = 100;
-        this.venue_id = 1;
         this.name = "default";
         this.description = "default";
         this.ticket = "default";
@@ -74,4 +78,8 @@ public class Shows {
     public void setTicket(String ticket) {
         this.ticket = ticket;
     }
+
+//    public void setVenue(Venue venue) {
+ //       this.venue = venue;
+//    }
 }

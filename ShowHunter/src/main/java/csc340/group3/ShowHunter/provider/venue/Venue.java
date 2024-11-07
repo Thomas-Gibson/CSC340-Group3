@@ -1,5 +1,10 @@
 package csc340.group3.ShowHunter.provider.venue;
+import csc340.group3.ShowHunter.provider.comments.Comments;
+import csc340.group3.ShowHunter.provider.shows.Shows;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "venues")
@@ -8,7 +13,7 @@ public class Venue {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    public int id;
 
     @Column(nullable = false)
     public String name;
@@ -61,4 +66,5 @@ public class Venue {
     public void setDescription(String description){
         this.description = description;
     }
+
 }

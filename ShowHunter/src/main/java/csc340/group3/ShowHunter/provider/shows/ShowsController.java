@@ -25,7 +25,7 @@ public class ShowsController {
         return showsService.getShowByID(id);
     }
 
-    @PostMapping("/new")
+    @PostMapping("/{id}/new")
     public List<Shows> addShow(@RequestBody Shows show) {
         showsService.addShow(show);
         return showsService.getAllShows();

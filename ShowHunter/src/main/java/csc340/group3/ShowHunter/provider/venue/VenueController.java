@@ -19,7 +19,7 @@ public class VenueController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Venue> getOneVenue(@PathVariable int id) {
+    public Venue getOneVenue(@PathVariable int id) {
         return venueService.getVenueById(id);
     }
 
@@ -31,7 +31,7 @@ public class VenueController {
     
     
     @PutMapping("/update/{id}")
-    public Optional<Venue> updateVenue(@PathVariable int id, @RequestBody Venue venue) {
+    public Venue updateVenue(@PathVariable int id, @RequestBody Venue venue) {
         venueService.updateVenue(id, venue);
         return venueService.getVenueById(id);
     }

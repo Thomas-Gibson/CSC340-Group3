@@ -15,7 +15,7 @@ public class VenueService {
         return venueRepository.findAll();
     }
 
-    public Optional<Venue> getVenueById(int id) {
+    public Venue getVenueById(int id) {
         return venueRepository.findById(id);
     }
 
@@ -24,7 +24,7 @@ public class VenueService {
     }
 
     public void updateVenue(int id, Venue venue){
-        Optional<Venue> existing = getVenueById(id);
+        Venue existing = getVenueById(id);
         venueRepository.save(venue);
     }
 

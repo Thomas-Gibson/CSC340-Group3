@@ -13,4 +13,5 @@ public interface CommentsRepository extends JpaRepository<Comments, Integer> {
 
     @Query(value = "SELECT a FROM Comments a WHERE a.name LIKE %?1%", nativeQuery = true)
     Optional<Comments> findByNameContaining(String name);
+//    Optional<Comments> findByVenueId(int id);
 }
