@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Merchandise</title>
+</head>
+<body>
+<h1>Create Merchandise</h1>
+<!--<form action="/merch/update" method="post">-->
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" placeholder="Enter image URL" required><br><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" name="price" placeholder="Enter price" step="0.01" required><br><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" placeholder="Enter description" required></textarea><br><br>
+
+    <label for="show">Show:</label><br>
+    <select id="show" name="showId" required>
+        <!-- Options will be dynamically populated -->
+        <option value="" disabled selected>Select a show</option>
+    </select><br><br>
+
+    <button type="submit">Create Merchandise</button>
+</form>
+</body>
+</html>

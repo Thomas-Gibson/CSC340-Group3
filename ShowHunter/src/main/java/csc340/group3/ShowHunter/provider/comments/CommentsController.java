@@ -2,11 +2,12 @@
 //
 //
 //import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Controller;
 //import org.springframework.web.bind.annotation.*;
 //
 //import java.util.Optional;
 //
-//@RestController
+//@Controller
 //@RequestMapping("/venues")
 //public class CommentsController {
 //
@@ -14,8 +15,8 @@
 //    private CommentsService commentsService;
 //
 //    @GetMapping ("{id}/comments")
-//    public Optional<Comments> getComments(@PathVariable int id) {
-//        return commentsService.getComments(id);
+//    public String getComments(@PathVariable int id) {
+//        return "a";
 //    }
 //
 //    @PostMapping ("/{id}/comments/new")
@@ -23,5 +24,5 @@
 //        return commentsService.addComment(comment);
 //    }
 //
-//
+
 //}

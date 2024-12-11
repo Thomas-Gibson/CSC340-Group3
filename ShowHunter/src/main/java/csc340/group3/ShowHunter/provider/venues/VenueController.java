@@ -72,7 +72,7 @@ public class VenueController {
         Venue venue = venueService.getVenueById(id);
         venue.addShow(show);
         show.setVenue(venue);
-        venueService.addVenue(venue); // Save the updated venue with the new show
+        venueService.addVenue(venue);
         return "redirect:/venues/" + id;
     }
 

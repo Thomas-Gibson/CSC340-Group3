@@ -1,7 +1,7 @@
 //package csc340.group3.ShowHunter.provider.comments;
 //
-//import csc340.group3.ShowHunter.provider.venue.Venue;
-//import csc340.group3.ShowHunter.provider.venue.VenueRepository;
+//import csc340.group3.ShowHunter.provider.venues.Venue;
+//import csc340.group3.ShowHunter.provider.venues.VenueRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 //
@@ -17,8 +17,8 @@
 //
 //
 //    public Comments addComment(Comments comment) {
-//        //Venue venue = venueRepository.findById(id);
-//        //comment.setVenue(venue);
+////        Venue venue = venueRepository.findById(id);
+////        comment.setVenue(venue);
 //        return commentsRepository.save(comment);
 //
 //    }

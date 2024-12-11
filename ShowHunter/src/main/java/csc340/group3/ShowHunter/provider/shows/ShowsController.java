@@ -1,4 +1,5 @@
 package csc340.group3.ShowHunter.provider.shows;
+import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
 import csc340.group3.ShowHunter.provider.venues.Venue;
 
 import csc340.group3.ShowHunter.provider.venues.VenueService;
@@ -30,7 +31,7 @@ public class ShowsController {
         model.addAttribute("show", show);
         model.addAttribute("venues", venueService.getAllVenues());
         return "edit-show";
-}
+    }
 
     @PostMapping("/shows/edit/{id}")
     public String updateShow(@PathVariable int id, @ModelAttribute Shows show, @RequestParam int venueId) {
@@ -50,11 +51,25 @@ public class ShowsController {
         return "redirect:/venues/" + vid;
     }
 
-
-    @GetMapping("/venues/add-show/{venueId}/")
-    public String addShowForm(@PathVariable int venueId, Model model) {
-        Venue venue = venueService.getVenueById(venueId); // Fetch the venue
-        model.addAttribute("venue", venue); // Pass the venue to the view
-        return "add-show"; // Render the add-show.html form
+    @GetMapping("/shows/{id}/add-merch")
+    public String addMerchForm(@PathVariable int id, Model model) {
+        Shows show = showsService.getShowByID(id).orElse(null);
+        model.addAttribute("show", show);
+        model.addAttribute("merch", new Merchandise());
+        return "create-merch";
     }
+
+    @PostMapping("/shows/{id}/add-merch")
+    public String saveMerch(@PathVariable int id, @ModelAttribute Merchandise merch) {
+        Shows show = showsService.getShowByID(id).orElse(null);
+        return "redirect:/shows/" + id;
+    }
+
+
+//    @GetMapping("/venues/add-show/{venueId}/")
+//    public String addShowForm(@PathVariable int venueId, Model model) {
+//        Venue venue = venueService.getVenueById(venueId); // Fetch the venue
+//        model.addAttribute("venue", venue); // Pass the venue to the view
+//        return "add-show"; // Render the add-show.html form
+//    }
 }
