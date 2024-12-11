@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Venue</title>
+</head>
+<body>
+<h1>Edit Venue</h1>
+<form th:action="@{/venues/edit/{id}(id=${venue.id})}" method="post">
+    <label for="name">Venue Name:</label>
+    <input type="text" id="name" name="name" th:value="${venue.name}" required>
+    <br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" cols="50" th:text="${venue.description}" required></textarea>
+    <br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+</body>
+</html>

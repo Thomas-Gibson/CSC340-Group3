@@ -1,46 +1,60 @@
 package csc340.group3.ShowHunter.provider.shows;
+import csc340.group3.ShowHunter.provider.venues.Venue;
 
-import csc340.group3.ShowHunter.provider.shows.ShowsService;
+import csc340.group3.ShowHunter.provider.venues.VenueService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
-@RestController
-@RequestMapping("/shows")
+@Controller
 public class ShowsController {
 
     @Autowired
     private ShowsService showsService;
+    @Autowired
+    private VenueService venueService;
 
-    @GetMapping("/all")
-    public List<Shows> getAllShows() {
-        return showsService.getAllShows();
+    @GetMapping("shows/{id}")
+    public String getOneShow(@PathVariable int id, Model model) {
+        Shows show = showsService.getShowByID(id).orElse(null);
+        model.addAttribute("show", show);
+        return "show-view";
     }
 
-    @GetMapping("/{id}")
-    public Optional<Shows> getOneShow(@PathVariable int id) {
-        return showsService.getShowByID(id);
-    }
+    @GetMapping("shows/edit/{id}")
+    public String editShowForm(@PathVariable int id, Model model) {
+        Shows show = showsService.getShowByID(id).orElse(null);
+        model.addAttribute("show", show);
+        model.addAttribute("venues", venueService.getAllVenues());
+        return "edit-show";
+}
 
-    @PostMapping("/{id}/new")
-    public List<Shows> addShow(@RequestBody Shows show) {
+    @PostMapping("/shows/edit/{id}")
+    public String updateShow(@PathVariable int id, @ModelAttribute Shows show, @RequestParam int venueId) {
+        Venue venue = venueService.getVenueById(venueId);
+        show.setId(id);
+        show.setVenue(venue);
         showsService.addShow(show);
-        return showsService.getAllShows();
+        return "redirect:/shows/{id}";
     }
 
-    @PutMapping("/update/{id}")
-    public Optional<Shows> updateShow(@PathVariable int id, @RequestBody Shows show) {
-        showsService.updateShow(id, show);
-        return showsService.getShowByID(id);
-    }
-
-    @DeleteMapping("/delete/{id}")
-    public List<Shows> deleteShowById(@PathVariable int id) {
+    @GetMapping("/shows/delete/{id}")
+    public String deleteShow(@PathVariable int id) {
+        Shows t = showsService.getShowByID(id).orElse(null);
+        Venue temp2 = t.getVenue();
+        int vid = temp2.getId();
         showsService.deleteShowById(id);
-        return showsService.getAllShows();
+        return "redirect:/venues/" + vid;
     }
 
+
+    @GetMapping("/venues/add-show/{venueId}/")
+    public String addShowForm(@PathVariable int venueId, Model model) {
+        Venue venue = venueService.getVenueById(venueId); // Fetch the venue
+        model.addAttribute("venue", venue); // Pass the venue to the view
+        return "add-show"; // Render the add-show.html form
+    }
 }

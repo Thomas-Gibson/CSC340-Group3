@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+</head>
+<body>
+<h1>Edit Show</h1>
+<form th:action="@{/shows/edit/{id}(id=${show.id})}" method="post">
+    <label for="title">Show Title:</label>
+    <input type="text" id="title" name="title" th:value="${show.title}" required>
+    <br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" cols="50" th:text="${show.description}" required></textarea>
+    <br><br>
+
+    <label for="ticket">Ticket Link:</label>
+    <input type="text" id="ticket" name="ticket" th:value="${show.ticket}" required>
+    <br><br>
+
+    <label for="venue">Select Venue:</label>
+    <select id="venue" name="venueId" required>
+        <option th:each="venue : ${venues}" th:value="${venue.id}" th:selected="${venue.id == show.venue.id}" th:text="${venue.name}"></option>
+    </select>
+    <br><br>
+
+    <button type="submit">Save Changes</button>
+</form>
+</body>
+</html>

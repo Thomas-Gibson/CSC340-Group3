@@ -1,18 +1,15 @@
 package csc340.group3.ShowHunter.provider.shows;
+import csc340.group3.ShowHunter.provider.venues.Venue;
 
-import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
-import csc340.group3.ShowHunter.provider.venue.Venue;
+//import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
 import jakarta.persistence.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "shows")
 public class Shows {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false)
@@ -21,7 +18,12 @@ public class Shows {
     public String description;
     public String ticket;
 
+    @Column(nullable = false)
+    public String title;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "venue_id", nullable = false)
+    private Venue venue;
 
     public Shows(int id, String name, String image, String description, String ticket){
         this.id = id;
@@ -33,33 +35,32 @@ public class Shows {
     }
 
     public Shows() {
-        this.id = 100;
         this.name = "default";
         this.description = "default";
         this.ticket = "default";
     }
 
-    public int getShowId() {
+    public int getId() {
         return this.id;
     }
 
-    public void setShowId(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getShowName() {
+    public String getName() {
         return this.name;
     }
 
-    public void setShowName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getShowDescription() {
+    public String getDescription() {
         return this.description;
     }
 
-    public void setShowDescription(String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 
@@ -79,7 +80,19 @@ public class Shows {
         this.ticket = ticket;
     }
 
-//    public void setVenue(Venue venue) {
- //       this.venue = venue;
-//    }
+    public Venue getVenue(){
+        return venue;
+    }
+
+    public void setVenue(Venue venue) {
+         this.venue = venue;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public void setTitle(String title){
+        this.title = title;
+    }
 }

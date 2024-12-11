@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Venue</title>
+</head>
+<body>
+<h1>Create a New Venue</h1>
+<form action="/venues/new" method="post">
+    <label for="name">Venue Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br><br>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="4" cols="50" required></textarea>
+    <br><br>
+
+    <button type="submit">Create Venue</button>
+</form>
+</body>
+</html>
