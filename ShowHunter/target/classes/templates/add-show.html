@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Show</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Add New Show</h1>
+    
+    <form th:action="@{/venues/{id}/add-show(id=${venue.id})}" method="post">
+        <label for="title">Name:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="ticket">Ticket Information:</label>
+        <input type="text" id="ticket" name="ticket" required>
+
+        <button type="submit">Add Show</button>
+    </form>
+
+    <a href="/shows">Back to Shows</a>
+</body>
+</html>

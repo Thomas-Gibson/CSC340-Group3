@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venues</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="main-header">
+        <h1>Venues</h1>
+        <div class="actions">
+            <a href="/venues/new" class="create-button">Create New Venue</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="venues-grid">
+            <!-- existing venue cards code -->
+            <div class="venue-card" th:each="venue : ${venues}">
+                <a class="venue-link" th:href="@{/venues/{id}(id=${venue.id})}">
+                    <h2 class="venue-name" th:text="${venue.name}">Venue Name</h2>
+                    <p class="venue-preview" th:text="${venue.description}">Description</p>
+                    <div class="venue-footer">
+                        <span class="view-details">View Details →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

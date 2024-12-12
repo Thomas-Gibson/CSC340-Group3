@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Merchandise</title>
+</head>
+<body>
+<h1>Add Merch to Show: </h1>
+<form th:action="@{/shows/{id}/add-merch(id=${show.id})}" method="post">
+
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" placeholder="Enter image URL" required><br><br>
+
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" placeholder="Enter title" required><br><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" name="price" placeholder="Enter price" step="0.50" required><br><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" placeholder="Enter description" required></textarea><br><br>
+
+
+    <button type="submit">Create Merchandise</button>
+</form>
+</body>
+</html>

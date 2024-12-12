@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Details</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <header class="main-header">
+        <h1 th:text="${show.title}">Show Title</h1>
+        <p class="header-subtitle" th:text="${show.venue.name}">Venue Name</p>
+    </header>
+
+    <div class="container">
+        <div class="venue-card">
+            <div class="venue-link">
+                <p class="venue-preview" th:text="${show.description}">Show Description</p>
+                <p><strong>Ticket Info:</strong> 
+                    <a th:href="${show.ticket}" target="_blank">Buy Tickets</a>
+                </p>
+            </div>
+        </div>
+
+        <section class="venues-grid">
+            <div class="venue-card" th:each="merch : ${merch}">
+                <a class="venue-link" th:href="@{/merch/{id}(id=${merch.id})}">
+                    <h3 class="venue-name" th:text="${merch.title}">Merch Title</h3>
+                    <p class="venue-preview" th:text="${merch.description}">Merch Description</p>
+                    <p class="venue-preview">$<span th:text="${merch.price}">Price</span></p>
+                    <div class="venue-footer">
+                        <span class="view-details">View Merch Details →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="actions">
+            <a th:href="@{/shows/{id}/add-merch(id=${show.id})}">Add Merch</a>
+            <a th:href="@{/shows/edit/{id}(id=${show.id})}">Edit Show</a>
+            <a th:href="@{/shows/delete/{id}(id=${show.id})}" 
+               onclick="return confirm('Are you sure you want to delete this show?');">Delete Show</a>
+        </div>
+
+        <div class="back">
+            <a th:href="@{/venues/all}">Back to Venue List</a>
+        </div>
+    </div>
+</body>
+</html>

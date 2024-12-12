@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Merchandise</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<h1>Update Merchandise</h1>
+<form th:action="@{/merch/update/{id}(id=${merch.id})}" method="post">
+    <label for="image">Image URL:</label><br>
+    <input type="text" id="image" name="image" th:value="${merch.image}" required><br><br>
+
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" th:value="${merch.title}" required><br><br>
+
+    <label for="price">Price:</label><br>
+    <input type="number" id="price" name="price" th:value="${merch.price}" step="0.01" required><br><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" required th:text="${merch.description}"></textarea><br><br>
+
+    <button type="submit">Update Merchandise</button>
+</form>
+</body>
+</html>
+
