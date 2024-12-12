@@ -2,6 +2,8 @@ package csc340.group3.ShowHunter.provider.shows;
 import csc340.group3.ShowHunter.provider.venues.Venue;
 import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +28,7 @@ public class Shows {
     private Venue venue;
 
 
-    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Merchandise> merchandiseList;
 
     public Shows(int id, String name, String image, String description, String ticket){
@@ -42,6 +44,7 @@ public class Shows {
         this.name = "default";
         this.description = "default";
         this.ticket = "default";
+        this.merchandiseList = new ArrayList<>();
     }
 
     public int getId() {

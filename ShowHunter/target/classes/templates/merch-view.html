@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Details</title>
+    <title>Merchandise Details</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -94,35 +94,26 @@
 </head>
 <body>
 <header>
-    <h1>Show Details</h1>
+    <h1>Merchandise Details</h1>
 </header>
 <div class="container">
     <div class="details">
-        <h2 th:text="${show.title}">Show Title</h2>
-        <p><strong>Description:</strong> <span th:text="${show.description}">Show Description</span></p>
-        <p><strong>Ticket Info:</strong> <span th:text="${show.ticket}">Ticket Information</span></p>
-        <p><strong>Venue:</strong> <span th:text="${show.venue.name}">Venue Name</span></p>
+        <h2 th:text="${merch.description}">Merchandise Title</h2>
+        <p><strong>Price:</strong> <span th:text="${merch.price}">$0.00</span></p>
+        <p><strong>Image:</strong></p>
+        <img th:src="${merch.image}" alt="Merchandise Image" style="max-width: 100%; height: auto;">
+        <p><strong>Show:</strong> <span th:text="${merch.show.title}">Show Name</span></p>
     </div>
 
     <div class="actions">
-        <a th:href="@{/shows/{id}/add-merch(id=${show.id})}">Add Merch</a>
-        <a th:href="@{/shows/edit/{id}(id=${show.id})}">Edit Show</a>
-        <a th:href="@{/shows/delete/{id}(id=${show.id})}" onclick="return confirm('Are you sure you want to delete this show?');">Delete Show</a>
+        <a th:href="@{/merch/update/{id}(id=${merch.id})}">Edit Merchandise</a>
+        <a th:href="@{/merch/delete/{id}(id=${merch.id})}"
+           onclick="return confirm('Are you sure you want to delete this merchandise?');">Delete Merchandise</a>
     </div>
 
-
-    <section>
-        <h2>Merch at this Show</h2>
-        <ul>
-            <li th:each="merch : ${merch}">
-                <a th:href="@{/merch/{id}(id=${merch.id})}" th:text="${merch.title}">Title</a>
-            </li>
-        </ul>
-    </section>
-    <div class="back">
-        <a th:href="@{/venues/all}">Back to Venue List</a>
-    </div>
-
+<!--    <div class="back">-->
+<!--        <a th:href="@{/merchandise/list}">Back to Merchandise List</a>-->
+<!--    </div>-->
 </div>
 </body>
 </html>

@@ -105,10 +105,20 @@
     </div>
 
     <div class="actions">
+        <a th:href="@{/shows/{id}/add-merch(id=${show.id})}">Add Merch</a>
         <a th:href="@{/shows/edit/{id}(id=${show.id})}">Edit Show</a>
         <a th:href="@{/shows/delete/{id}(id=${show.id})}" onclick="return confirm('Are you sure you want to delete this show?');">Delete Show</a>
     </div>
 
+
+    <section>
+        <h2>Merch at this Show</h2>
+        <ul>
+            <li th:each="merch : ${merch}">
+                <a th:href="@{/merch/{id}(id=${merch.id})}" th:text="${merch.title}">Title</a>
+            </li>
+        </ul>
+    </section>
     <div class="back">
         <a th:href="@{/venues/all}">Back to Venue List</a>
     </div>

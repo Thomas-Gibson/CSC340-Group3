@@ -3,6 +3,7 @@ package csc340.group3.ShowHunter.provider.merchandise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import csc340.group3.ShowHunter.provider.shows.ShowsRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,7 @@ public class MerchandiseService {
         return merchandiseRepository.findById(id).orElse(null);
     }
 
+    @Transactional
     public void addMerch(Merchandise merch){
         merchandiseRepository.save(merch);
     }

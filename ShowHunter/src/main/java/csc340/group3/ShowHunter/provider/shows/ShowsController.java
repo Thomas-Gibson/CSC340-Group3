@@ -1,5 +1,6 @@
 package csc340.group3.ShowHunter.provider.shows;
 import csc340.group3.ShowHunter.provider.merchandise.Merchandise;
+import csc340.group3.ShowHunter.provider.merchandise.MerchandiseService;
 import csc340.group3.ShowHunter.provider.venues.Venue;
 
 import csc340.group3.ShowHunter.provider.venues.VenueService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -17,11 +19,15 @@ public class ShowsController {
     private ShowsService showsService;
     @Autowired
     private VenueService venueService;
+    @Autowired
+    private MerchandiseService merchandiseService;
 
     @GetMapping("shows/{id}")
     public String getOneShow(@PathVariable int id, Model model) {
         Shows show = showsService.getShowByID(id).orElse(null);
         model.addAttribute("show", show);
+        assert show != null;
+        model.addAttribute("merch", show.getMerchandiseList());
         return "show-view";
     }
 
@@ -60,16 +66,13 @@ public class ShowsController {
     }
 
     @PostMapping("/shows/{id}/add-merch")
+    @Transactional
     public String saveMerch(@PathVariable int id, @ModelAttribute Merchandise merch) {
         Shows show = showsService.getShowByID(id).orElse(null);
+        assert show != null;
+        merch.setShow(show);
+        merchandiseService.addMerch(merch);
         return "redirect:/shows/" + id;
     }
 
-
-//    @GetMapping("/venues/add-show/{venueId}/")
-//    public String addShowForm(@PathVariable int venueId, Model model) {
-//        Venue venue = venueService.getVenueById(venueId); // Fetch the venue
-//        model.addAttribute("venue", venue); // Pass the venue to the view
-//        return "add-show"; // Render the add-show.html form
-//    }
 }

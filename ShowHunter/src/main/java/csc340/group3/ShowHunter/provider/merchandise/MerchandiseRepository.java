@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface MerchandiseRepository extends JpaRepository<Merchandise, Integer> {
 
-    @Query(value = "SELECT a FROM Merchandise a WHERE a.name LIKE %?1%", nativeQuery = true)
+    @Query(value = "SELECT m FROM Merchandise m WHERE m.title LIKE %?1%")
     Optional<Merchandise> findByNameContaining(String name);
 }

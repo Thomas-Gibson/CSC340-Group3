@@ -15,10 +15,11 @@ public class Merchandise {
     public String image;
     public double price;
     public String description;
+    public String title;
 
 
-    @ManyToOne
-    @JoinColumn(name = "show_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "show_id")
     private Shows show;
 
     public Merchandise() {
@@ -27,6 +28,14 @@ public class Merchandise {
         this.price = 1.0;
         this.description = "default";
 
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getId() {
