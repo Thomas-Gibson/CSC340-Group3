@@ -144,6 +144,10 @@
     <footer>
         <a th:href="@{/view-comments/venue/{id}(id=${venue.id})}">View All Comments</a>
     </footer>
+
+    <div class="comments-section">
+        <a th:href="@{/venues/{id}/comments(id=${venue.id})}">View Comments</a>
+    </div>
 </div>
 </body>
 </html>

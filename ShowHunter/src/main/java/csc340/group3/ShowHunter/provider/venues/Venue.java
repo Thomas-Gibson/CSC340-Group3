@@ -1,6 +1,7 @@
 package csc340.group3.ShowHunter.provider.venues;
 //import csc340.group3.ShowHunter.provider.comments.Comments;
 import csc340.group3.ShowHunter.provider.shows.Shows;
+import csc340.group3.ShowHunter.provider.comments.Comments;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -22,6 +23,9 @@ public class Venue {
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     private List<Shows> shows = new ArrayList<>();
+
+    @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comments> comments = new ArrayList<>();
 
     public Venue(int id, String name, String profile_pic, String description) {
         this.id = id;
@@ -87,5 +91,22 @@ public class Venue {
         this.shows = shows;
     }
 
+    public List<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comments> comments) {
+        this.comments = comments;
+    }
+
+    public void addComment(Comments comment) {
+        comments.add(comment);
+        comment.setVenue(this);
+    }
+
+    public void removeComment(Comments comment) {
+        comments.remove(comment);
+        comment.setVenue(null);
+    }
 
 }

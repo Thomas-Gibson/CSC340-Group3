@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venue Comments</title>
+</head>
+<body>
+    <h1>Comments</h1>
+    
+    <form th:action="@{/venues/{id}/comments/new(id=${venueId})}" method="post">
+        <textarea name="text" placeholder="Write your comment here..." required></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <div th:if="${comments != null && !comments.empty}">
+        <div th:each="comment : ${comments}" class="comment">
+            <p th:text="${comment.text}"></p>
+            <a th:href="@{/venues/comments/delete/{commentId}/{venueId}(commentId=${comment.commentid},venueId=${venueId})}"
+               onclick="return confirm('Are you sure you want to delete this comment?')">Delete</a>
+            <hr>
+        </div>
+    </div>
+    <div th:if="${comments == null || comments.empty}">
+        <p>No comments yet.</p>
+    </div>
+
+    <a th:href="@{/venues/{id}(id=${venueId})}">Back to Venue</a>
+</body>
+</html> 
