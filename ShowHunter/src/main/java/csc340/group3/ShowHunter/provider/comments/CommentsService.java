@@ -28,7 +28,6 @@ public class CommentsService {
         Comments comment = new Comments();
         comment.setText(text);
         comment.setVenue(venue);
-        comment.setUserid(1); 
         
         return commentsRepository.save(comment);
     }
@@ -38,7 +37,7 @@ public class CommentsService {
     }
 
     @Transactional
-    public void deleteComment(int id) {
-        commentsRepository.deleteById(id);
+    public void deleteComment(int commentId) {
+        commentsRepository.deleteById(commentId);
     }
 }

@@ -4,93 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .details {
-            margin-bottom: 1.5rem;
-        }
-
-        .details h2 {
-            font-size: 1.8rem;
-            color: #007BFF;
-        }
-
-        .details p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-
-        .details strong {
-            color: #555;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            margin: 1.5rem 0;
-        }
-
-        .actions a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .actions a:hover {
-            background-color: #0056b3;
-        }
-
-        .back {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .back a {
-            text-decoration: none;
-            color: white;
-            background-color: #6c757d;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .back a:hover {
-            background-color: #5a6268;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -100,7 +15,7 @@
     <div class="details">
         <h2 th:text="${show.title}">Show Title</h2>
         <p><strong>Description:</strong> <span th:text="${show.description}">Show Description</span></p>
-        <p><strong>Ticket Info:</strong> <span th:text="${show.ticket}">Ticket Information</span></p>
+        <p><strong>Ticket Info:</strong> <a th:href="${show.ticket}">Buy Tickets Here</a></p>
         <p><strong>Venue:</strong> <span th:text="${show.venue.name}">Venue Name</span></p>
     </div>
 

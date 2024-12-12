@@ -4,119 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Venue View</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 
-        header {
-            background-color: #007BFF;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .description {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        nav {
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        nav a:hover {
-            background-color: #0056b3;
-        }
-
-        section {
-            margin-bottom: 2rem;
-        }
-
-        section h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin: 0.5rem 0;
-            background: #f1f1f1;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 10px;
-            transition: background-color 0.3s, transform 0.2s;
-        }
-
-        li:hover {
-            background: #e9e9e9;
-            transform: scale(1.02);
-        }
-
-        li a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
-        }
-
-        li a:hover {
-            color: #0056b3;
-        }
-
-        footer {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        footer a {
-            text-decoration: none;
-            color: white;
-            background-color: #28a745;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        footer a:hover {
-            background-color: #218838;
-        }
-    </style>
 </head>
 <body>
 <header>
@@ -125,29 +14,23 @@
 <div class="container">
     <p class="description" th:text="${venue.description}">Venue Description</p>
 
-    <nav>
-        <a th:href="@{/venues/edit/{id}(id=${venue.id})}">Edit Venue</a>
-        <a th:href="@{/venues/{id}/add-show(id=${venue.id})}">Add Show</a>
-        <a href="/venues/all">All Venues</a>
-        <a href="/logout">Logout</a>
+    <nav class="actions">
+        <a class="button" th:href="@{/venues/edit/{id}(id=${venue.id})}">Edit Venue</a>
+        <a class="button" th:href="@{/venues/{id}/add-show(id=${venue.id})}">Add Show</a>
+        <a class="button" href="/venues/all">All Venues</a>
+        <a class="button" th:href="@{/venues/{id}/comments(id=${venue.id})}">View Comments</a>
     </nav>
 
-    <section>
-        <h2>Shows at this Venue</h2>
-        <ul>
-            <li th:each="show : ${shows}">
-                <a th:href="@{/shows/{id}(id=${show.id})}" th:text="${show.title}">Show Title</a>
-            </li>
-        </ul>
+    <section class="shows-section">
+        <h2 class="shows-title">Shows at this Venue</h2>
+        <div class="shows-grid">
+            <div class="show-card" th:each="show : ${shows}">
+                <a class="show-link" th:href="@{/shows/{id}(id=${show.id})}">
+                    <h3 class="show-title" th:text="${show.title}">Show Title</h3>
+                </a>
+            </div>
+        </div>
     </section>
-
-    <footer>
-        <a th:href="@{/view-comments/venue/{id}(id=${venue.id})}">View All Comments</a>
-    </footer>
-
-    <div class="comments-section">
-        <a th:href="@{/venues/{id}/comments(id=${venue.id})}">View Comments</a>
-    </div>
 </div>
 </body>
 </html>

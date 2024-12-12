@@ -24,9 +24,7 @@ public class CommentsController {
     @PostMapping("/{id}/comments/new")
     @Transactional
     public String addComment(@PathVariable int id, @ModelAttribute("text") String text) {
-        Comments comment = new Comments();
-        comment.setText(text);
-        commentsService.addComment(comment, id);
+        commentsService.addComment(text, id);
         return "redirect:/venues/" + id + "/comments";
     }
 

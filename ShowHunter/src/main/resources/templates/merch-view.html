@@ -4,116 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchandise Details</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #28a745;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2rem;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 2rem auto;
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .details {
-            margin-bottom: 1.5rem;
-        }
-
-        .details h2 {
-            font-size: 1.8rem;
-            color: #007BFF;
-        }
-
-        .details p {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
-        }
-
-        .details strong {
-            color: #555;
-        }
-
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            margin: 1.5rem 0;
-        }
-
-        .actions a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .actions a:hover {
-            background-color: #0056b3;
-        }
-
-        .back {
-            text-align: center;
-            margin-top: 2rem;
-        }
-
-        .back a {
-            text-decoration: none;
-            color: white;
-            background-color: #6c757d;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-        }
-
-        .back a:hover {
-            background-color: #5a6268;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<header>
     <h1>Merchandise Details</h1>
-</header>
-<div class="container">
-    <div class="details">
-        <h2 th:text="${merch.description}">Merchandise Title</h2>
-        <p><strong>Price:</strong> <span th:text="${merch.price}">$0.00</span></p>
-        <p><strong>Image:</strong></p>
-        <img th:src="${merch.image}" alt="Merchandise Image" style="max-width: 100%; height: auto;">
-        <p><strong>Show:</strong> <span th:text="${merch.show.title}">Show Name</span></p>
+
+    <div class="merch-details">
+        <img th:src="${merch.image}" alt="Merchandise Image">
+        <h2 th:text="${merch.title}"></h2>
+        <p th:text="${merch.description}"></p>
+        <p>Price: $<span th:text="${merch.price}"></span></p>
     </div>
 
     <div class="actions">
         <a th:href="@{/merch/update/{id}(id=${merch.id})}">Edit Merchandise</a>
-        <a th:href="@{/merch/delete/{id}(id=${merch.id})}"
-           onclick="return confirm('Are you sure you want to delete this merchandise?');">Delete Merchandise</a>
+        <a th:href="@{/merch/delete/{id}(id=${merch.id})}" class="delete-link"
+           onclick="return confirm('Are you sure you want to delete this merchandise?')">Delete Merchandise</a>
     </div>
-
-<!--    <div class="back">-->
-<!--        <a th:href="@{/merchandise/list}">Back to Merchandise List</a>-->
-<!--    </div>-->
-</div>
 </body>
 </html>

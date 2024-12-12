@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Venue</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Create a New Venue</h1>
-<form action="/venues/new" method="post">
-    <label for="name">Venue Name:</label>
-    <input type="text" id="name" name="name" required>
-    <br><br>
+    <h1>Create New Venue</h1>
+    
+    <form action="/venues/create" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" cols="50" required></textarea>
-    <br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
 
-    <button type="submit">Create Venue</button>
-</form>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required>
+
+        <button type="submit">Create Venue</button>
+    </form>
+
+    <a href="/venues">Back to Venues</a>
 </body>
 </html>

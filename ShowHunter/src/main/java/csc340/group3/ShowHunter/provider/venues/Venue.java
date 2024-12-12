@@ -20,6 +20,7 @@ public class Venue {
     public String name;
     public String profile_pic;
     public String description;
+    public String location;
 
     @OneToMany(mappedBy = "venue", cascade = CascadeType.ALL)
     private List<Shows> shows = new ArrayList<>();
@@ -71,6 +72,14 @@ public class Venue {
 
     public void setDescription(String description){
         this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public void addShow(Shows show) {

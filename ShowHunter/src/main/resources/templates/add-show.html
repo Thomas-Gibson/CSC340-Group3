@@ -4,19 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Show</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<h1>Add Show to Venue: <span th:text="${venue.name}"></span></h1>
-<form th:action="@{/venues/{id}/add-show(id=${venue.id})}" method="post">
-    <label for="title">Title:</label>
-    <input type="text" id="title" name="title" required>
-    <br><br>
+    <h1>Add New Show</h1>
+    
+    <form th:action="@{/venues/{id}/add-show(id=${venue.id})}" method="post">
+        <label for="title">Name:</label>
+        <input type="text" id="title" name="title" required>
 
-    <label for="description">Description:</label>
-    <textarea id="description" name="description" rows="4" cols="50"></textarea>
-    <br><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
 
-    <button type="submit">Add Show</button>
-</form>
+        <label for="ticket">Ticket Information:</label>
+        <input type="text" id="ticket" name="ticket" required>
+
+        <button type="submit">Add Show</button>
+    </form>
+
+    <a href="/shows">Back to Shows</a>
 </body>
 </html>
