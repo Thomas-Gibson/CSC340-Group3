@@ -146,3 +146,41 @@ a:hover {
     margin: 0 auto;
     padding: 0 1rem;
 }
+
+/* New styles that don't conflict with existing ones */
+.actions {
+    margin: 2rem 0;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.actions a {
+    background-color: #3498db;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.actions a:hover {
+    background-color: #2980b9;
+    text-decoration: none;
+}
+
+.back {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.back a {
+    color: #666;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back a:hover {
+    color: #333;
+}

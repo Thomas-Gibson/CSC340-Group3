@@ -3,34 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Venue View</title>
+    <title>Venue Details</title>
     <link rel="stylesheet" th:href="@{/css/styles.css}">
-
 </head>
 <body>
-<header>
-    <h1 th:text="${venue.name}">Venue Name</h1>
-</header>
-<div class="container">
-    <p class="description" th:text="${venue.description}">Venue Description</p>
+    <header class="main-header">
+        <h1 th:text="${venue.name}">Venue Name</h1>
+    </header>
 
-    <nav class="actions">
-        <a class="button" th:href="@{/venues/edit/{id}(id=${venue.id})}">Edit Venue</a>
-        <a class="button" th:href="@{/venues/{id}/add-show(id=${venue.id})}">Add Show</a>
-        <a class="button" href="/venues/all">All Venues</a>
-        <a class="button" th:href="@{/venues/{id}/comments(id=${venue.id})}">View Comments</a>
-    </nav>
-
-    <section class="shows-section">
-        <h2 class="shows-title">Shows at this Venue</h2>
-        <div class="shows-grid">
-            <div class="show-card" th:each="show : ${shows}">
-                <a class="show-link" th:href="@{/shows/{id}(id=${show.id})}">
-                    <h3 class="show-title" th:text="${show.title}">Show Title</h3>
-                </a>
+    <div class="container">
+        <div class="venue-card">
+            <div class="venue-link">
+                <p class="venue-preview" th:text="${venue.description}">Description</p>
             </div>
         </div>
-    </section>
-</div>
+
+        <section class="venues-grid">
+            <div class="venue-card" th:each="show : ${shows}">
+                <a class="venue-link" th:href="@{/shows/{id}(id=${show.id})}">
+                    <h3 class="venue-name" th:text="${show.title}">Show Title</h3>
+                    <p class="venue-preview" th:text="${show.description}">Show Description</p>
+                    <div class="venue-footer">
+                        <span class="view-details">View Show Details →</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <div class="actions">
+            <a th:href="@{/venues/{id}/add-show(id=${venue.id})}">Add Show</a>
+            <a th:href="@{/venues/{id}/comments(id=${venue.id})}">View Comments</a>
+            <a th:href="@{/venues/edit/{id}(id=${venue.id})}">Edit Venue</a>
+            <a th:href="@{/venues/delete/{id}(id=${venue.id})}" 
+               onclick="return confirm('Are you sure you want to delete this venue?');">Delete Venue</a>
+        </div>
+
+        <div class="back">
+            <a th:href="@{/venues/all}">Back to Venue List</a>
+        </div>
+    </div>
 </body>
 </html>
